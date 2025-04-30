@@ -1,22 +1,20 @@
-node {
-    stage('checkout') {
-        git branch: 'main', url: 'https://github.com/omarghonim1/simple-java-app.git'
-    }
+pipeline{
+    agent any
 
-    stage('build') {
-        try {
-            sh 'echo "build stage"'
-        } catch (e) {
-            sh 'echo "exception found"'
-            throw e
+    stages{
+        stage('build'){
+            steps{
+                script{
+                    echo "build in progress"
+                }
+            }
+        }
+    stage('test'){
+        steps{
+            script{
+                echo "test in progress "
+            }
         }
     }
-
-    stage('test') {
-        if (env.BRANCH_NAME == "feature") {
-            sh 'echo "test stage"'
-        } else {
-            sh 'echo "skip test stage"'
-        }
     }
 }
