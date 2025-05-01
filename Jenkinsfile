@@ -1,12 +1,11 @@
 pipeline{
     agent any
 
-
     stages{
         stage('build'){
             steps{
                 script{
-                    echo "build in progess"
+                    echo "build in progress"
                 }
             }
         }
